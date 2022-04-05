@@ -4,10 +4,19 @@ Spring Boot course from DevDojo Academy
 
 ## Topics
 
-- @Component, Autowired and @SpringBootApplication
+- @Component, @Autowired and @SpringBootApplication
 - Hot Swap
 - Spring Initializr
 - CRUD (GET, READ, UPDATE and DELETE)
+
+## Notes
+
+- Avoid return the object prefers use a ResponseEntity
+``` java
+@GetMapping
+public List<Anime> listAll() {} 😕
+public ResponseEntity<List<Anime>> listAll() {} ✅
+```
 
 ## Playlist
 
