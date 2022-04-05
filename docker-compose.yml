@@ -1,0 +1,15 @@
+version: '3.1'
+services:
+  db:
+    image: mysql:5.7
+    container_name: springboot_mysql_container
+    environment:
+      MYSQL_DATABASE: anime
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - devdojo_data:/var/lib/mysql
+
+volumes:
+  devdojo_data:

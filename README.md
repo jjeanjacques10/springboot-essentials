@@ -8,6 +8,7 @@ Spring Boot course from DevDojo Academy
 - Hot Swap
 - Spring Initializr
 - CRUD (GET, READ, UPDATE and DELETE)
+- JPA (MySQL)
 
 ## Notes
 
@@ -19,6 +20,15 @@ public ResponseEntity<List<Anime>> listAll() {} ✅
 ```
 - Use config to get stack trace when pass trace param
 ```/animes/6?trace=true``` (Not Found)
+- JpaRepository has @NoRepositoryBean
+
+## Get Started
+
+Start database container docker:
+
+``` bash
+docker-compose up -d
+```
 
 ## Playlist
 
