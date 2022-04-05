@@ -6,6 +6,7 @@ import academy.devdojo.springbootessentials.util.Utils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
@@ -27,6 +28,7 @@ public class AnimeService {
         return utils.findAnimeOrThrowNotFound(id, animeRepository);
     }
 
+    @Transactional(dontRollbackOn = Exception.class)
     public Anime save(Anime anime) {
         return animeRepository.save(anime);
     }
