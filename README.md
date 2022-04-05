@@ -17,6 +17,8 @@ Spring Boot course from DevDojo Academy
 public List<Anime> listAll() {} 😕
 public ResponseEntity<List<Anime>> listAll() {} ✅
 ```
+- Use config to get stack trace when pass trace param
+```/animes/6?trace=true``` (Not Found)
 
 ## Playlist
 

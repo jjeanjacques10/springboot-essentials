@@ -8,8 +8,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -26,6 +28,16 @@ public class AnimeController {
     @GetMapping
     public ResponseEntity<List<Anime>> listAll() {
         log.info("Date formated: {}", dataUtil.formatLocalDateTimeToDatabaseStyle(LocalDateTime.now()));
-        return new ResponseEntity<>(animeRepository.listAll(), HttpStatus.OK);
+        return ResponseEntity.ok(animeRepository.listAll());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Anime> findById(@PathVariable int id) {
+        var animeFound = animeRepository.listAll()
+                .stream()
+                .filter(anime -> anime.getId() == id)
+                .findFirst()
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Anime Not Found"));
+        return ResponseEntity.ok(animeFound);
     }
 }
