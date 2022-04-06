@@ -10,6 +10,7 @@ Spring Boot course from DevDojo Academy
 - CRUD (GET, READ, UPDATE and DELETE)
 - JPA (MySQL)
 - Exception Handling
+- Paging and Sorting
 
 ## Notes
 
@@ -38,6 +39,15 @@ public ResponseEntity<List<Anime>> listAll() {} ✅
 ```
 
 - It's possible ignore errors when use transaction ``@Transactional(dontRollbackOn = Exception.class)``
+- Configure logger to log hibernate SQL only when level is DEBUG
+
+``` yml
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+```
 
 ## Get Started
 
