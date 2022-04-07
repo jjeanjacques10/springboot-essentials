@@ -77,6 +77,8 @@ Assertions.assertThatExceptionOfType(ConstraintViolationException.class)
         .withMessageContaining("The name of this anime cannot be empty");
 ```
 
+- Use @ExtendWith(SpringExtension.class) to integrates the Spring TestContext Framework into JUnit 5's Jupiter programming model
+
 ## Get Started
 
 Start database container docker:

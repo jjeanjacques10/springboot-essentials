@@ -21,12 +21,10 @@ import java.util.List;
 @RequestMapping("animes")
 public class AnimeController {
 
-    private final Utils utils;
     private final AnimeService animeRepository;
 
     @GetMapping
     public ResponseEntity<Page<Anime>> listAll(Pageable pageable) {
-        log.info("Date formated: {}", utils.formatLocalDateTimeToDatabaseStyle(LocalDateTime.now()));
         return ResponseEntity.ok(animeRepository.listAll(pageable));
     }
 
@@ -36,7 +34,7 @@ public class AnimeController {
     }
 
     @GetMapping("/find")
-    public ResponseEntity<List<Anime>> findById(@RequestParam(value = "name") String name) {
+    public ResponseEntity<List<Anime>> findByName(@RequestParam(value = "name") String name) {
         return ResponseEntity.ok(animeRepository.findByName(name));
     }
 

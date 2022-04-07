@@ -13,6 +13,8 @@ import javax.validation.ConstraintViolationException;
 import java.util.List;
 import java.util.Optional;
 
+import static academy.devdojo.springbootessentials.util.AnimeCreator.createAnimeToBeSaved;
+
 @DataJpaTest
 @DisplayName("Anime Repository Tests")
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
@@ -23,7 +25,7 @@ class AnimeRepositoryTest {
 
     @Test
     void should_Save_Persist_Anime_When_Successful() {
-        Anime anime = createAnime();
+        Anime anime = createAnimeToBeSaved();
 
         Anime savedAnime = this.animeRepository.save(anime);
         Assertions.assertThat(savedAnime.getId()).isNotNull();
@@ -33,7 +35,7 @@ class AnimeRepositoryTest {
 
     @Test
     void should_Update_Anime_When_Successful() {
-        Anime anime = createAnime();
+        Anime anime = createAnimeToBeSaved();
 
         Anime savedAnime = this.animeRepository.save(anime);
 
@@ -48,7 +50,7 @@ class AnimeRepositoryTest {
 
     @Test
     void should_Delete_Anime_When_Successful() {
-        Anime anime = createAnime();
+        Anime anime = createAnimeToBeSaved();
 
         Anime savedAnime = this.animeRepository.save(anime);
 
@@ -61,7 +63,7 @@ class AnimeRepositoryTest {
 
     @Test
     void should_FindByName_And_Return_Anime() {
-        Anime anime = createAnime();
+        Anime anime = createAnimeToBeSaved();
         Anime savedAnime = this.animeRepository.save(anime);
 
         String name = savedAnime.getName();
@@ -88,13 +90,6 @@ class AnimeRepositoryTest {
         Assertions.assertThatExceptionOfType(ConstraintViolationException.class)
                 .isThrownBy(() -> animeRepository.save(anime))
                 .withMessageContaining("The name of this anime cannot be empty");
-    }
-
-    private Anime createAnime() {
-        return Anime.builder()
-                .name("Demon Slayer")
-                .url("http://localhost:8080/demon-slayer")
-                .build();
     }
 
 }
