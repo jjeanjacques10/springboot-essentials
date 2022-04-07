@@ -66,6 +66,7 @@ logging:
 ``` java
 void should_Save_Persist_Anime_When_Successful() -> "should Save Persist Anime When Successful"
 ```
+
 - Two ways to get exceptions in tests
 
 ``` java
@@ -77,7 +78,14 @@ Assertions.assertThatExceptionOfType(ConstraintViolationException.class)
         .withMessageContaining("The name of this anime cannot be empty");
 ```
 
-- Use @ExtendWith(SpringExtension.class) to integrates the Spring TestContext Framework into JUnit 5's Jupiter programming model
+- Use @ExtendWith(SpringExtension.class) to integrates the Spring TestContext Framework into JUnit 5's Jupiter
+  programming model
+- When my method doesn't return a result I can use this Mock
+
+``` java
+Assertions.assertThatCode(() -> animeService.delete(1))
+                .doesNotThrowAnyException();
+```
 
 ## Get Started
 
