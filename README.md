@@ -48,6 +48,7 @@ logging:
       hibernate:
         SQL: DEBUG
 ```
+- RestTemplate is used to simulate requests to your API
 
 ## Get Started
 
