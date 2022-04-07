@@ -48,7 +48,34 @@ logging:
       hibernate:
         SQL: DEBUG
 ```
+
 - RestTemplate is used to simulate requests to your API
+- Use a mock database to create tests with JPA, such as H2
+
+``` xml
+<!-- Mock database -->
+<dependency>
+    <groupId>com.h2database</groupId>
+    <artifactId>h2</artifactId>
+    <scope>test</scope> <!-- Set scope -->
+</dependency>
+```
+
+- Change display name tests format using ```@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)```
+
+``` java
+void should_Save_Persist_Anime_When_Successful() -> "should Save Persist Anime When Successful"
+```
+- Two ways to get exceptions in tests
+
+``` java
+Assertions.assertThatThrownBy(() -> animeRepository.save(anime))
+        .isInstanceOf(ConstraintViolationException.class);
+
+Assertions.assertThatExceptionOfType(ConstraintViolationException.class)
+        .isThrownBy(() -> animeRepository.save(anime))
+        .withMessageContaining("The name of this anime cannot be empty");
+```
 
 ## Get Started
 
