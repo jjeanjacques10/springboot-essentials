@@ -87,6 +87,38 @@ Assertions.assertThatCode(() -> animeService.delete(1))
                 .doesNotThrowAnyException();
 ```
 
+- Get port using @LocalServerPort ([Example](./src/test/java/academy/devdojo/springbootessentials/integration/AnimeControllerIT.java))
+
+``` java
+@Value("${local.server.port}")
+public @interface LocalServerPort {
+}
+```
+
+- Mock database as a Bean (@MockBean)
+- Set Maven profile for Integration Tests
+
+``` xml
+<profiles>
+    <profile>
+        <id>integration-tests</id>
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <configuration>
+                        <includes>
+                            <include>**/*IT.*</include>
+                        </includes>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </build>
+    </profile>
+</profiles>
+```
+
 ## Get Started
 
 Start database container docker:

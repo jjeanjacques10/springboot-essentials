@@ -104,15 +104,10 @@ class AnimeControllerTest {
     void should_Update_Anime() {
         Anime validUpdateAnime = createValidUpdateAnime();
 
-        String expectedName = validUpdateAnime.getName();
+        ResponseEntity<Void> responseEntity = animeController.update(validUpdateAnime);
 
-        Anime validAnime = createValidAnime();
-
-        Anime anime = animeController.save(validAnime).getBody();
-        animeController.update(validUpdateAnime);
-
-        Assertions.assertThat(anime).isNotNull();
-        Assertions.assertThat(anime.getId()).isNotNull();
-        Assertions.assertThat(anime.getName()).isEqualTo(expectedName);
+        Assertions.assertThat(responseEntity).isNotNull();
+        Assertions.assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.NO_CONTENT);
+        Assertions.assertThat(responseEntity.getBody()).isNull();
     }
 }
