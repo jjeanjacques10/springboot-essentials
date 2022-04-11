@@ -135,6 +135,22 @@ mvn clean install package
 java -jar .\target\springboot-essentials-0.0.1-SNAPSHOT.jar
 ```
 
+It's possible change database config editing [docker-compose.yml](docker-compose.yml)
+
+## Test
+
+Run all tests (unit and integration tests)
+
+``` bash
+mvn test 
+```
+
+Run only integration tests
+
+``` bash
+mvn test -Pintegration-tests 
+```
+
 ## Playlist
 
 - https://www.youtube.com/playlist?list=PL0Un1HNdB4jHTXBeJ8u3Kaz0NMxuMkmOY
