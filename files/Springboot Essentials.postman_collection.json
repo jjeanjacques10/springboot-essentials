@@ -1,0 +1,245 @@
+{
+	"info": {
+		"_postman_id": "68362d16-264d-4a8b-9ae0-39410e34ef25",
+		"name": "Springboot Essentials",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var xsrfCookie = postman.getResponseCookie(\"XSRF-TOKEN\");\r",
+							"postman.setEnvironmentVariable(\"x-xsrf-token\", xsrfCookie.value);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "barros",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "jean",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-xsrf-token",
+						"value": "{{x-xsrf-token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/animes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"animes"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "size",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "sort",
+							"value": "name",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find Anime",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/animes/find?name=Naruto",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"animes",
+						"find"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Naruto"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "barros",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "jean",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-xsrf-token",
+						"value": "{{x-xsrf-token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Digimon\",\r\n    \"url\": \"http://localhost:8080/digimon\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/animes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"animes"
+					],
+					"query": [
+						{
+							"key": "trace",
+							"value": "true",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 2,\r\n    \"name\": \"Digimon Adventure\",\r\n    \"url\": \"http://localhost:8080/digimon\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/animes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"animes"
+					],
+					"query": [
+						{
+							"key": "trace",
+							"value": "true",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/animes/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"animes",
+						"1"
+					],
+					"query": [
+						{
+							"key": "trace",
+							"value": "true",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

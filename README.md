@@ -88,7 +88,8 @@ Assertions.assertThatCode(() -> animeService.delete(1))
                 .doesNotThrowAnyException();
 ```
 
-- Get port using @LocalServerPort ([Example](./src/test/java/academy/devdojo/springbootessentials/integration/AnimeControllerIT.java))
+- Get port using
+  @LocalServerPort ([Example](./src/test/java/academy/devdojo/springbootessentials/integration/AnimeControllerIT.java))
 
 ``` java
 @Value("${local.server.port}")
@@ -119,6 +120,15 @@ public @interface LocalServerPort {
     </profile>
 </profiles>
 ```
+
+- Get XSRF in Postman using JavaScript
+
+``` javascript
+var xsrfCookie = postman.getResponseCookie("XSRF-TOKEN");
+postman.setEnvironmentVariable("x-xsrf-token", xsrfCookie.value);
+```
+
+<img src="https://i.ytimg.com/vi/9JrzPX1pVjs/maxresdefault.jpg" width="600px"/>
 
 ## Get Started
 
@@ -151,6 +161,8 @@ Run only integration tests
 ``` bash
 mvn test -Pintegration-tests 
 ```
+
+Collection Postman folder [file](./files/Springboot%20Essentials.postman_collection.json)
 
 ## Playlist
 
