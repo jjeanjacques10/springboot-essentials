@@ -11,6 +11,7 @@ Spring Boot course from DevDojo Academy
 - JPA (MySQL)
 - Exception Handling
 - Paging and Sorting
+- Spring Security
 
 ## Notes
 
