@@ -15,6 +15,7 @@ Spring Boot course from DevDojo Academy
 - [OpenAPI](https://springdoc.org/)
 - Spring Actuator
 - Prometheus
+- Grafana
 
 ## Notes
 
