@@ -14,6 +14,7 @@ Spring Boot course from DevDojo Academy
 - Spring Security
 - [OpenAPI](https://springdoc.org/)
 - Spring Actuator
+- Prometheus
 
 ## Notes
 
