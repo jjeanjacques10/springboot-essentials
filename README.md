@@ -130,6 +130,8 @@ postman.setEnvironmentVariable("x-xsrf-token", xsrfCookie.value);
 
 <img src="https://i.ytimg.com/vi/9JrzPX1pVjs/maxresdefault.jpg" width="600px"/>
 
+- Protect specific routes using ``@PreAuthorize("hasRole('ADMIN')")``
+
 ## Get Started
 
 Start database container docker:

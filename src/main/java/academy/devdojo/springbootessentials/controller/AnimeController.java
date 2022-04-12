@@ -30,7 +30,7 @@ public class AnimeController {
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+
     public ResponseEntity<Anime> findById(@PathVariable int id, @AuthenticationPrincipal UserDetails userDetails) {
         log.info("User logged in {}", userDetails);
         return ResponseEntity.ok(animeRepository.findById(id));
@@ -46,8 +46,7 @@ public class AnimeController {
         return ResponseEntity.ok(animeRepository.save(anime));
     }
 
-    @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @DeleteMapping("/admin/{id}")
     public ResponseEntity<Void> delete(@PathVariable int id) {
         animeRepository.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
