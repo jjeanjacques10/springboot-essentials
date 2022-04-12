@@ -12,7 +12,8 @@ Spring Boot course from DevDojo Academy
 - Exception Handling
 - Paging and Sorting
 - Spring Security
-- OpenAPI
+- [OpenAPI](https://springdoc.org/)
+- Spring Actuator
 
 ## Notes
 

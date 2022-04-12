@@ -85,6 +85,11 @@
 			<artifactId>springdoc-openapi-data-rest</artifactId>
 			<version>1.6.7</version>
 		</dependency>
+		<!-- Spring Actuator -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
