@@ -12,6 +12,7 @@ Spring Boot course from DevDojo Academy
 - Exception Handling
 - Paging and Sorting
 - Spring Security
+- OpenAPI
 
 ## Notes
 
@@ -131,6 +132,14 @@ postman.setEnvironmentVariable("x-xsrf-token", xsrfCookie.value);
 <img src="https://i.ytimg.com/vi/9JrzPX1pVjs/maxresdefault.jpg" width="600px"/>
 
 - Protect specific routes using ``@PreAuthorize("hasRole('ADMIN')")``
+- Hidden parameter when you're using Swagger
+
+``` java
+@Parameter(hidden = true)
+```
+
+- Use http://localhost:8080/swagger-ui/index.html to access documentation or http://localhost:8080/v3/api-docs
+- Download yaml docs version use http://localhost:8080/v3/api-docs.yaml
 
 ## Get Started
 
