@@ -56,7 +56,7 @@ class AnimeControllerTest {
     void should_FindById_Anime() {
         Integer expectedId = createValidAnime().getId();
 
-        Anime anime = animeController.findById(1).getBody();
+        Anime anime = animeController.findById(1, null).getBody();
 
         Assertions.assertThat(anime).isNotNull();
         Assertions.assertThat(anime.getId()).isNotNull();
